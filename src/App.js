@@ -1,5 +1,4 @@
 import React from "react";
-// import Home from "./Home";
 import Jumbotron from "./components/Jumbotron";
 import LandingPage from "./components/LandingPage";
 
