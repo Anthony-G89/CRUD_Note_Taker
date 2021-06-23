@@ -1,9 +1,13 @@
 import React from "react";
+// import Home from "./Home";
+import Jumbotron from "./components/Jumbotron";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   return (
-    <div className="">
-    <h1>Hello world</h1>
+    <div >
+      <Jumbotron />
+      <LandingPage />
     </div>
   );
 }
