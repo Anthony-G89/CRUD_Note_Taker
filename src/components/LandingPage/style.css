@@ -36,7 +36,15 @@
 
 .addNoteBtnContainer:hover {
     background-color: #cfcdcd ;
+    text-decoration: underline;
 }
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+
 
 .addNoteBtn {
     display: flex;
@@ -48,7 +56,6 @@
 
 .notePadIcon {
    display: flex;
-   /* flex-wrap: wrap; */
    justify-content: center;
    align-items: center;
 }
