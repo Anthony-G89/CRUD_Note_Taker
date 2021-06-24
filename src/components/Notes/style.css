@@ -5,6 +5,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    overflow-y: auto;
 } 
 
 .noteContainer {
@@ -13,8 +14,9 @@
 
 .backBtn {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    z-index: 1;
+    top: 15px;
+    left: 15px;
     border: 1px solid rgb(26, 25, 25);
     background-color: #fafafa;
     padding: 5px 30px;
@@ -24,8 +26,11 @@
 }
 
 .backBtn:hover {
-    background-color: #bdbdbd;
+    background-color: #8bc34a;
+    color: white;
 }
+
+/* NEW NOTES */
 
 .noteTitle{ 
     position: relative;
@@ -35,20 +40,26 @@
     font-family: 'Dela Gothic One', cursive;
     letter-spacing: 2px;
     bottom: 10px;
+    height: 17vh;
 }
 
-hr {
-    width: 20%;
-    margin: 3px auto;
-    background-color: rgb(128, 124, 124);
+.noteTitle::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    height: 3px;
+    min-width: 21%;
+    background-color: #8bc34a;
+    bottom: 1px;
 }
 
-.row {
+.newNote {
     position: relative;
-    height: 100vh;
-    width: 100%;
-    left: -13px;
+    height: 69vh;
+    margin: 0%;
     text-align: center;
+    display: flex;
+    justify-content: center;
 
 }
 
@@ -58,8 +69,97 @@ hr {
     left: 44%;
 }
 
+.noteFormContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.titleLabel {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+}
+
 #input_text {
     text-align: center;
     padding: 5px;
 }
+
+input[type=text]:focus {
+    background-color:  rgb(215, 231, 247);
+    color: black;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+textarea[type=text]:focus {
+    background-color:  rgb(215, 231, 247);
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-weight: bold;
+}
+
+.textLabel {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.noteBody {
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    min-width: 300px;
+}
+
+/* LIST OF NOTES */
+
+.listOfNotes {
+    position: relative;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    left: 0;
+    bottom: 0;
+}
+
+.myNotesTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dela Gothic One', cursive;
+    letter-spacing: 2px;
+    position: relative;
+    height: 10vh;
+}
+
+.myNotesTitle::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    height: 3px;
+    min-width: 21%;
+    background-color: #8bc34a;
+    bottom: 1px;
+}
+
+
+.liContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    height: 59%;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+
+li:nth-child(odd) {
+    background-color: #f5f5f5;
+  }
 
