@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} 
+
+.noteContainer {
+    position: relative;
+}
+
+.backBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border: 1px solid rgb(26, 25, 25);
+    background-color: #fafafa;
+    padding: 5px 30px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+.backBtn:hover {
+    background-color: #bdbdbd;
+}
+
+.noteTitle{ 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    font-family: 'Dela Gothic One', cursive;
+    letter-spacing: 2px;
+    bottom: 10px;
+}
+
+hr {
+    width: 20%;
+    margin: 3px auto;
+    background-color: rgb(128, 124, 124);
+}
+
+.row {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    left: -13px;
+    text-align: center;
+
+}
+
+.col-12 {
+    position: absolute;
+    top: 104px;
+    left: 44%;
+}
+
+#input_text {
+    text-align: center;
+    padding: 5px;
+}
+

@@ -5,9 +5,31 @@ import { Link } from "react-router-dom";
 
 function Notes() {
     return (
-        <div>
-            <h1>This is the NOTE PAGE</h1>
-            <Link to="/"><a className="homeBtn">Home Page</a></Link>
+
+        <div className="noteContainer">
+            <Link to="/"><a className="backBtn">Back</a></Link>
+
+            <h1 className="noteTitle">New Note</h1>
+            <hr />
+            <div className="row">
+                <div className="col-12 ">
+                    <form>
+
+                        <label for="input_text">Note Title:</label>
+                        <input placeholder="Title" id="input_text" type="text" data-length="20" />
+                            <br/>
+                            <br/>
+                        <label for="input_text">Note</label>
+                        <textarea placeholder="Your note.." rows="10" cols="50" data-length="120"></textarea>
+
+                    </form>
+                </div>
+
+            </div>
+
+
+
+
         </div>
     )
 }
