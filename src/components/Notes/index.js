@@ -20,25 +20,22 @@ function Notes() {
                         <br />
                         <br />
                         <label htmlFor="input_text" className="textLabel"> Note Text</label>
-                        <textarea id="body_text" className="noteBody"  type="text" rows="10" cols="50" data-length="120"></textarea>
+                        <textarea id="body_text" className="noteBody" type="text" rows="10" cols="50" data-length="120"></textarea>
                     </form>
+                        <button id="submitNoteBtn" >Submit</button>
                 </div>
             </div>
 
             <div className="row listOfNotes">
                 <div className="col-lg-12">
-
                     <h1 className="myNotesTitle">My Notes</h1>
-
                     <ul className=" list-group-flush liContainer">
                         <li className="list-group-item">Sports</li>
                         <li className="list-group-item">History</li>
                         <li className="list-group-item">Grocery</li>
                         <li></li>
                     </ul>
-
                 </div>
-
             </div>
 
 
