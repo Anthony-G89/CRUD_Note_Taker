@@ -36,11 +36,11 @@
     position: relative;
     display: flex;
     justify-content: center;
-    padding-top: 100px;
     font-family: 'Dela Gothic One', cursive;
     letter-spacing: 2px;
-    bottom: 10px;
-    height: 17vh;
+    height: 22vh;
+    top: 38px;
+    /* DOUBLE CHECK ON HEIGHT FOR XL-SCREEN WAS 17VH */
 }
 
 .noteTitle::after {
@@ -50,12 +50,12 @@
     height: 3px;
     min-width: 21%;
     background-color: #8bc34a;
-    bottom: 1px;
+    top: 57px;
 }
 
 .newNote {
     position: relative;
-    height: 69vh;
+    height: 100vh;
     margin: 0%;
     text-align: center;
     display: flex;
@@ -109,7 +109,7 @@ textarea[type=text]:focus {
     /* text-align: center; */
     width: 100%;
     max-width: 100%;
-    min-width: 300px;
+    min-width: 216px;
     padding: 10px;
 }
 
