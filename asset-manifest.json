@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/CRUD_Note_Taker/static/css/main.1f418af4.chunk.css",
+    "main.js": "/CRUD_Note_Taker/static/js/main.aeaff1ee.chunk.js",
+    "main.js.map": "/CRUD_Note_Taker/static/js/main.aeaff1ee.chunk.js.map",
+    "runtime-main.js": "/CRUD_Note_Taker/static/js/runtime-main.44bb993a.js",
+    "runtime-main.js.map": "/CRUD_Note_Taker/static/js/runtime-main.44bb993a.js.map",
+    "static/js/2.152a9c99.chunk.js": "/CRUD_Note_Taker/static/js/2.152a9c99.chunk.js",
+    "static/js/2.152a9c99.chunk.js.map": "/CRUD_Note_Taker/static/js/2.152a9c99.chunk.js.map",
+    "index.html": "/CRUD_Note_Taker/index.html",
+    "static/css/main.1f418af4.chunk.css.map": "/CRUD_Note_Taker/static/css/main.1f418af4.chunk.css.map",
+    "static/js/2.152a9c99.chunk.js.LICENSE.txt": "/CRUD_Note_Taker/static/js/2.152a9c99.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.44bb993a.js",
+    "static/js/2.152a9c99.chunk.js",
+    "static/css/main.1f418af4.chunk.css",
+    "static/js/main.aeaff1ee.chunk.js"
+  ]
+}
