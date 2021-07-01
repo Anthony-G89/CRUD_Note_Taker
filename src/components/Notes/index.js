@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import "./style.css";
 import { Link } from "react-router-dom";
-import Axios from "axios";
+import axios from "axios";
 
 function Notes() {
 
@@ -17,14 +17,14 @@ function Notes() {
             return;
         };
 
-        // clearState();
-        Axios.post("/notes/api/notes", {
+        axios.post("/api/insertNotes", {
             notetitle: noteTitle,
             noteBody: noteBody,
-        }).then((err) => {
+        }).then((err, result) => {
             if (err) throw err;
-            alert("Your note has been posted! 😃")
-            return;
+            console.log(result);
+            // alert("Your note has been posted! 😃")
+            // return;
         });
     };
 
