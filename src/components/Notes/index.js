@@ -23,8 +23,7 @@ function Notes() {
         }).then((err, result) => {
             if (err) throw err;
             console.log(result);
-            // alert("Your note has been posted! 😃")
-            // return;
+            alert("Your note has been posted! 😃")
         });
     };
 

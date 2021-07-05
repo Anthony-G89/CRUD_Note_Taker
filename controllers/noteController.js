@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
         const object = {
             notes: data
         };
-        console.log(object);
+        return res.json(object)
     })
 
 });
@@ -22,7 +22,7 @@ router.post("/api/insertNotes", function (req, res) {
     ], [
         req.body.Title, req.body.Body
     ], function (result) {
-        res.json({ id: result.insertId })
+        res.json(result)
     })
 });
 
