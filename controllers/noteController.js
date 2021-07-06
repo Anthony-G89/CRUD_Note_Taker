@@ -22,7 +22,7 @@ router.post("/api/insertNotes", function (req, res) {
     ], [
         req.body.Title, req.body.Body
     ], function (result) {
-        res.json(result)
+        return res.json({ id: result.id })
     })
 });
 

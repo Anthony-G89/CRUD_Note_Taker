@@ -12,6 +12,7 @@ function Notes() {
 
     const submitNote = (e) => {
         e.preventDefault();
+        
         if (!noteTitle || !noteBody) {
             alert("Please enter a note");
             return;
