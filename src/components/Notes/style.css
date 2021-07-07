@@ -173,8 +173,21 @@ background-color: #043db3;
     height: 59%;
 }
 
-.list-group-item {
+.trashBtn {
+    position: absolute;
+    right: 29px;
     cursor: pointer;
+    z-index: 2;
+}
+
+.editBtn  {
+    position: absolute;
+    right: 77px;
+    cursor: pointer;
+}
+
+.list-group-item {
+    /* cursor: pointer; */
 }
 
 

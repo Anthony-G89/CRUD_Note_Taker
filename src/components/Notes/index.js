@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Notes() {
+function Notes({ btnToDeleteBtn }) {
 
 
     const [noteTitle, setNoteTitle] = useState("");
@@ -12,7 +13,7 @@ function Notes() {
 
     const submitNote = (e) => {
         e.preventDefault();
-        
+
         if (!noteTitle || !noteBody) {
             alert("Please enter a note");
             return;
@@ -28,7 +29,6 @@ function Notes() {
         });
     };
 
-  
     // const clearState = () => {
     //     setNoteTitle( "")
     //     setNoteBody("");
@@ -72,7 +72,10 @@ function Notes() {
                 <div className="col-lg-12">
                     <h1 className="myNotesTitle">My Notes</h1>
                     <ul className=" list-group-flush liContainer">
-                        <li className="list-group-item">Sports</li>
+                        <li className="list-group-item">Sports
+                            <img className="editBtn" title="Edit" src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
+                            <img className="trashBtn" onClick={btnToDeleteBtn} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
+                        </li>
                         <li className="list-group-item">History</li>
                         <li className="list-group-item">Grocery</li>
                         <li></li>
