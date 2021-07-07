@@ -22,7 +22,7 @@ router.post("/api/insertNotes", function (req, res) {
     ], [
         req.body.Title, req.body.Body
     ], function (result) {
-        return res.json({ id: result.id })
+        return result.status(200).json("Added on the back-end")
     })
 });
 

@@ -12,13 +12,12 @@ function Notes({ btnToDeleteBtn }) {
 
     const submitNote = (e) => {
         e.preventDefault();
-
         if (!noteTitle || !noteBody) {
             alert("Please enter a note");
             return;
         };
 
-        axios.post("/api/insertNotes", {
+        axios.post('/api/insertNotes', {
             notetitle: noteTitle,
             noteBody: noteBody,
         }).then((err, result) => {

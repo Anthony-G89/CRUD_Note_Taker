@@ -1,13 +1,13 @@
 import React from 'react';
 import "./style.css";
 
-const DeleteModal = ({ openModal , closeModal }) => {
+const DeleteModal = ({ openModal, closeModal }) => {
 
 
     return (
         <div>
 
-           { openModal ? <div className="modal-wrapper">
+            {openModal ? <div className="modal-wrapper">
                 <div className="modal-box">
                     <div className="modal-header">
                         <h2 className="modal-Title">Deleting Note</h2>
