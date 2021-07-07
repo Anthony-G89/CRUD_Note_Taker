@@ -12,8 +12,14 @@ function App() {
 
   const [showModal, setShowModal] = useState(false);
 
+
+  // This function will open a Modal for when user wants to delete a note
   const btnToDeleteBtn = () => {
     setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false)
   };
 
   
@@ -32,6 +38,7 @@ function App() {
         </Switch>
           < DeleteModal
         openModal={showModal}
+        closeModal={closeModal}
       />
       </Router>
       

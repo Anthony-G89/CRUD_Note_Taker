@@ -7,7 +7,6 @@ import axios from "axios";
 
 function Notes({ btnToDeleteBtn }) {
 
-  console.log(btnToDeleteBtn);
     const [noteTitle, setNoteTitle] = useState("");
     const [noteBody, setNoteBody] = useState("");
 
@@ -28,11 +27,6 @@ function Notes({ btnToDeleteBtn }) {
             alert("Your note has been posted! 😃")
         });
     };
-
-    // const clearState = () => {
-    //     setNoteTitle( "")
-    //     setNoteBody("");
-    // }
 
     return (
         <div className="noteContainer">
