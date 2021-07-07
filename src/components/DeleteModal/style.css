@@ -1,15 +1,50 @@
-.modal-wrapper {
-    height: 100vh;
-    background-color: #8bc34a;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-.modal-Background {
-  
+ .modal-wrapper {
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.2);
 }
 
 .modal-box {
-    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 345px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.modal-Title {
+    width: 98%;
+    height: 5vh;
+}
+
+.closeBtn {
+    position: relative;
+    font-size: 29px;
+    bottom: 26px;
+    cursor: pointer;
+    color: red;
+}
+.modal-content {
+    padding: 10px ;
+    height: 100px;
+}
+
+.modal-text {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-weight: bold;
 }

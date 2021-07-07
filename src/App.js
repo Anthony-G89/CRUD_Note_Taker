@@ -12,10 +12,11 @@ function App() {
 
   const [showModal, setShowModal] = useState(false);
 
-  const btnToDeleteBtn = (data) => {
-    setShowModal(true)
-    // console.log("from app");
+  const btnToDeleteBtn = () => {
+    setShowModal(true);
   };
+
+  
 
   return (
     <div >
@@ -24,14 +25,16 @@ function App() {
         <Switch>
           < Route exact path="/" component={LandingPage} />
           < Route path="/notes"
-            component={Notes}
-            btnToDeleteBtn={btnToDeleteBtn}
+            render={(props) => (
+              <Notes {...props} btnToDeleteBtn={btnToDeleteBtn} />
+            )}
           />
         </Switch>
-          <Route component={DeleteModal}
-            openModal={showModal}
-          />
+          < DeleteModal
+        openModal={showModal}
+      />
       </Router>
+      
     </div>
   );
 }

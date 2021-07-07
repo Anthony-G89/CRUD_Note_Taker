@@ -7,7 +7,7 @@ import axios from "axios";
 
 function Notes({ btnToDeleteBtn }) {
 
-
+  console.log(btnToDeleteBtn);
     const [noteTitle, setNoteTitle] = useState("");
     const [noteBody, setNoteBody] = useState("");
 
