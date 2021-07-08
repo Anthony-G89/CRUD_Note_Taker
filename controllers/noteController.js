@@ -6,6 +6,7 @@ const Note = require("../model/note.js");
 // Get ALL Notes
 router.get("/", (req, res) => {
     Note.all(function (data) {
+        // console.log(data);
         const object = {
             notes: data
         };
@@ -22,7 +23,7 @@ router.post("/api/insertNotes", function (req, res) {
     ], [
         req.body.Title, req.body.Body
     ], function (result) {
-        return result.status(200).json("Added on the back-end")
+        res.json({ id: result.insertId });
     })
 });
 

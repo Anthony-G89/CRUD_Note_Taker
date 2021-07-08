@@ -10,20 +10,18 @@ function Notes({ btnToDeleteBtn }) {
     const [noteTitle, setNoteTitle] = useState("");
     const [noteBody, setNoteBody] = useState("");
 
+
     const submitNote = (e) => {
         e.preventDefault();
         if (!noteTitle || !noteBody) {
             alert("Please enter a note");
             return;
         };
-
         axios.post('/api/insertNotes', {
-            notetitle: noteTitle,
-            noteBody: noteBody,
+            Title: noteTitle,
+            Body: noteBody,
         }).then((err, result) => {
             if (err) throw err;
-            console.log(result);
-            alert("Your note has been posted! 😃")
         });
     };
 
