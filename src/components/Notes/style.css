@@ -171,10 +171,26 @@ background-color: #043db3;
     transform: translate(-50%, -50%);
     width: 65%;
     height: 59%;
+    min-height: 65%;
 }
+
+.list-group-item {
+    overflow-y: hidden;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.userTitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
 
 .trashBtn {
     position: absolute;
+    top: 6px;
     right: 29px;
     cursor: pointer;
     z-index: 2;
@@ -182,13 +198,12 @@ background-color: #043db3;
 
 .editBtn  {
     position: absolute;
+    top: 6px;
     right: 77px;
     cursor: pointer;
 }
 
-.list-group-item {
-    /* cursor: pointer; */
-}
+
 
 
 li:nth-child(odd) {
@@ -222,4 +237,42 @@ li:nth-child(odd) {
         left: 46%;
         width: 99%;
     }
+}
+
+@media screen and (min-width:499px)  and (max-width:560px) {
+    .liContainer {
+        width: 78%;
+        height: 71%;
+    }
+}
+
+@media screen and (min-width:374px)  and (max-width:498px) {
+
+    .modal-box {
+        height: 75%;
+        width: 57%;
+    }
+    .liContainer {
+        width: 98%;
+        height: 72%;
+    }
+    .editBtn {
+        right: 56px;
+    }
+    .trashBtn {
+        right: 7px;
+       
+    }
+    .modal-content {
+        top: 47px;
+    }
+    .modal-footer {
+        right: 0px;
+        top: 177px;
+    }
+    /* .list-group-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+    } */
 }

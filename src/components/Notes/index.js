@@ -1,26 +1,26 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState , useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Notes({ btnToDeleteBtn , allNotes }) {
+function Notes({ btnToDeleteBtn }) {
 
     const [noteTitle, setNoteTitle] = useState("");
     const [noteBody, setNoteBody] = useState("");
-    
+    const [notesList, setNotesList] = useState([]);
 
 
-    // useEffect(() => {
-    //     axios.get("/getNotes")
-    //     .then((objectResponse) => {
-    //         console.log(objectResponse.data.notes);
-    //         // setNotesList.JSON.parase(objectResponse.data.notes);
-    //         // const allNotes = objectResponse.data.notes;
+    function loadNotes() {
+        axios.get("/getNotes").then(res =>
+            // console.log(res.data.notes))
+            setNotesList(res.data.notes))
+    }
 
-    //     })
-    // }, []);
+    useEffect(() => {
+        loadNotes()
+    }, []);
 
 
     const submitNote = (e) => {
@@ -34,7 +34,7 @@ function Notes({ btnToDeleteBtn , allNotes }) {
             Body: noteBody,
         }).then((err, result) => {
             if (err) throw err;
-          
+
         });
     };
 
@@ -77,21 +77,15 @@ function Notes({ btnToDeleteBtn , allNotes }) {
                     <h1 className="myNotesTitle">My Notes</h1>
                     <ul className=" list-group-flush liContainer">
 
-
                         {
-                                allNotes.map(obj => (
-                                    <li>
-                                        <p>Title: {obj.Title}</p>
-                                    </li>
-                                ))
-
-                            // allNotes.map((val) => {
-                            //     // return <h1>Title: {val.Title}</h1>
-                            //     return console.log(val);
-                            // })
+                            notesList.map(notes => (
+                                <li key={notes.id} className="list-group-item" >
+                                    <div className="userTitle">{notes.Title}</div>
+                                    <img className="editBtn" title="Edit" src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
+                                    <img className="trashBtn" onClick={btnToDeleteBtn} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
+                                </li>
+                            ))
                         }
-
-                       
 
                         {/* <li className="list-group-item">Sports
                             <img className="editBtn" title="Edit" src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
