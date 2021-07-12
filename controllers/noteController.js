@@ -27,4 +27,20 @@ router.post("/api/insertNotes", function (req, res) {
     })
 });
 
+
+// Delete Note
+router.delete("/api/insertNotes/:id", function (req, res) {
+    var condition = "id =" + req.params.id;
+    
+    Note.delete(condition, function (result) {
+        if (result.affectedRows === 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    })
+
+});
+
+
 module.exports = router;

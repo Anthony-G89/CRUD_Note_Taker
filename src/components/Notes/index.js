@@ -12,6 +12,8 @@ function Notes({ btnToDeleteBtn }) {
     const [notesList, setNotesList] = useState([]);
 
 
+
+
     function loadNotes() {
         axios.get("/getNotes").then(res =>
             // console.log(res.data.notes))
@@ -25,18 +27,31 @@ function Notes({ btnToDeleteBtn }) {
 
     const submitNote = (e) => {
         e.preventDefault();
+
         if (!noteTitle || !noteBody) {
             alert("Please enter a note");
             return;
         };
+
         axios.post('/api/insertNotes', {
             Title: noteTitle,
             Body: noteBody,
-        }).then((err, result) => {
-            if (err) throw err;
-
         });
+
+        setNotesList([
+            ...notesList,
+            { Title: noteTitle, Body: noteBody }
+        ]);
+
     };
+
+    // Function to delete notes
+    const deleteNote = () => {
+        axios.delete("/api/insertNotes/:id")
+        .then(res =>
+            console.log(res)
+            )
+    }
 
     return (
         <div className="noteContainer">
@@ -77,15 +92,18 @@ function Notes({ btnToDeleteBtn }) {
                     <h1 className="myNotesTitle">My Notes</h1>
                     <ul className=" list-group-flush liContainer">
 
-                        {
+
+
+
+                        {notesList ?
                             notesList.map(notes => (
                                 <li key={notes.id} className="list-group-item" >
                                     <div className="userTitle">{notes.Title}</div>
                                     <img className="editBtn" title="Edit" src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
-                                    <img className="trashBtn" onClick={btnToDeleteBtn} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
+                                    <img className="trashBtn" onClick={()=> deleteNote(btnToDeleteBtn)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
                                 </li>
                             ))
-                        }
+                            : <h3>No new notes!!</h3>}
 
                         {/* <li className="list-group-item">Sports
                             <img className="editBtn" title="Edit" src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
