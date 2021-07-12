@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.3ff94549.chunk.css",
-    "main.js": "/static/js/main.994ab96f.chunk.js",
-    "main.js.map": "/static/js/main.994ab96f.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.ca95f74e.js",
-    "runtime-main.js.map": "/static/js/runtime-main.ca95f74e.js.map",
-    "static/js/2.d29f82e1.chunk.js": "/static/js/2.d29f82e1.chunk.js",
-    "static/js/2.d29f82e1.chunk.js.map": "/static/js/2.d29f82e1.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.3ff94549.chunk.css.map": "/static/css/main.3ff94549.chunk.css.map",
-    "static/js/2.d29f82e1.chunk.js.LICENSE.txt": "/static/js/2.d29f82e1.chunk.js.LICENSE.txt"
+    "main.css": "/CRUD_Note_Taker/static/css/main.3ff94549.chunk.css",
+    "main.js": "/CRUD_Note_Taker/static/js/main.b08f6986.chunk.js",
+    "main.js.map": "/CRUD_Note_Taker/static/js/main.b08f6986.chunk.js.map",
+    "runtime-main.js": "/CRUD_Note_Taker/static/js/runtime-main.44bb993a.js",
+    "runtime-main.js.map": "/CRUD_Note_Taker/static/js/runtime-main.44bb993a.js.map",
+    "static/js/2.e8f3463c.chunk.js": "/CRUD_Note_Taker/static/js/2.e8f3463c.chunk.js",
+    "static/js/2.e8f3463c.chunk.js.map": "/CRUD_Note_Taker/static/js/2.e8f3463c.chunk.js.map",
+    "index.html": "/CRUD_Note_Taker/index.html",
+    "static/css/main.3ff94549.chunk.css.map": "/CRUD_Note_Taker/static/css/main.3ff94549.chunk.css.map",
+    "static/js/2.e8f3463c.chunk.js.LICENSE.txt": "/CRUD_Note_Taker/static/js/2.e8f3463c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ca95f74e.js",
-    "static/js/2.d29f82e1.chunk.js",
+    "static/js/runtime-main.44bb993a.js",
+    "static/js/2.e8f3463c.chunk.js",
     "static/css/main.3ff94549.chunk.css",
-    "static/js/main.994ab96f.chunk.js"
+    "static/js/main.b08f6986.chunk.js"
   ]
 }
