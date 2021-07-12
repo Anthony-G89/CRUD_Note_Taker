@@ -2,6 +2,7 @@
   "name": "crud_note_takers",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Anthony-G89.github.io/CRUD_Note_Taker",
   "proxy" : "http://localhost:3001/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
