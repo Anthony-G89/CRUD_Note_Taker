@@ -4,7 +4,7 @@ const router = express.Router();
 const Note = require("../model/note.js");
 
 // Get ALL Notes
-router.get("/", (req, res) => {
+router.get("/getNotes", (req, res) => {
     Note.all(function (data) {
         // console.log(data);
         const object = {

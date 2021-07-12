@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Jumbotron from "./components/Jumbotron";
 import LandingPage from "./components/LandingPage";
 import Notes from "./components/Notes";
 import DeleteModal from "./components/DeleteModal";
+import axios from "axios";
 
 
 
@@ -11,6 +12,7 @@ import DeleteModal from "./components/DeleteModal";
 function App() {
 
   const [showModal, setShowModal] = useState(false);
+  const [notesList , setNotesList] = useState([]);
 
 
   // This function will open a Modal for when user wants to delete a note
@@ -18,9 +20,21 @@ function App() {
     setShowModal(true);
   };
 
+  // Close Delete Modal
   const closeModal = () => {
     setShowModal(false)
   };
+
+
+  useEffect(() => {
+    axios.get("/getNotes")
+    .then((objectResponse) => {
+        // console.log(objectResponse.data.notes);
+        setNotesList(objectResponse.data.notes);
+        // const allNotes = objectResponse.data.notes;
+
+    })
+}, []);
 
   
 
@@ -32,7 +46,7 @@ function App() {
           < Route exact path="/" component={LandingPage} />
           < Route path="/notes"
             render={(props) => (
-              <Notes {...props} btnToDeleteBtn={btnToDeleteBtn} />
+              <Notes {...props} btnToDeleteBtn={btnToDeleteBtn} allNotes ={setNotesList} />
             )}
           />
         </Switch>

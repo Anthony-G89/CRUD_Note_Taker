@@ -1,14 +1,26 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Notes({ btnToDeleteBtn }) {
+function Notes({ btnToDeleteBtn , allNotes }) {
 
     const [noteTitle, setNoteTitle] = useState("");
     const [noteBody, setNoteBody] = useState("");
+    
+
+
+    // useEffect(() => {
+    //     axios.get("/getNotes")
+    //     .then((objectResponse) => {
+    //         console.log(objectResponse.data.notes);
+    //         // setNotesList.JSON.parase(objectResponse.data.notes);
+    //         // const allNotes = objectResponse.data.notes;
+
+    //     })
+    // }, []);
 
 
     const submitNote = (e) => {
@@ -22,6 +34,7 @@ function Notes({ btnToDeleteBtn }) {
             Body: noteBody,
         }).then((err, result) => {
             if (err) throw err;
+          
         });
     };
 
@@ -63,13 +76,29 @@ function Notes({ btnToDeleteBtn }) {
                 <div className="col-lg-12">
                     <h1 className="myNotesTitle">My Notes</h1>
                     <ul className=" list-group-flush liContainer">
-                        <li className="list-group-item">Sports
+
+
+                        {
+                                allNotes.map(obj => (
+                                    <li>
+                                        <p>Title: {obj.Title}</p>
+                                    </li>
+                                ))
+
+                            // allNotes.map((val) => {
+                            //     // return <h1>Title: {val.Title}</h1>
+                            //     return console.log(val);
+                            // })
+                        }
+
+                       
+
+                        {/* <li className="list-group-item">Sports
                             <img className="editBtn" title="Edit" src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
                             <img className="trashBtn" onClick={btnToDeleteBtn} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
                         </li>
                         <li className="list-group-item">History</li>
-                        <li className="list-group-item">Grocery</li>
-                        <li></li>
+                        <li className="list-group-item">Grocery</li> */}
                     </ul>
                 </div>
             </div>
