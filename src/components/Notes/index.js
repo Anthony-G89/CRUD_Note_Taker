@@ -18,7 +18,7 @@ function Notes({ btnToDeleteBtn }) {
         axios.get("/getNotes").then(res =>
             // console.log(res.data.notes))
             setNotesList(res.data.notes))
-    }
+    };
 
     useEffect(() => {
         loadNotes()
@@ -46,8 +46,9 @@ function Notes({ btnToDeleteBtn }) {
     };
 
     // Function to delete notes
-    const deleteNote = () => {
-        axios.delete("/api/insertNotes/:id")
+    const deleteNote = (id) => {
+        console.log(id)
+        axios.delete(`/api/insertNotes/:${id}`)
         .then(res =>
             console.log(res)
             )
@@ -100,7 +101,7 @@ function Notes({ btnToDeleteBtn }) {
                                 <li key={notes.id} className="list-group-item" >
                                     <div className="userTitle">{notes.Title}</div>
                                     <img className="editBtn" title="Edit" src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
-                                    <img className="trashBtn" onClick={()=> deleteNote(btnToDeleteBtn)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
+                                    <img className="trashBtn" onClick={()=> deleteNote(notes.id)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
                                 </li>
                             ))
                             : <h3>No new notes!!</h3>}
