@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 * {
     padding: 0;
@@ -14,7 +15,7 @@
 
 .backBtn {
     position: absolute;
-    z-index: 1;
+    /* z-index: 1; */
     top: 15px;
     left: 15px;
     border: 1px solid rgb(26, 25, 25);
@@ -164,7 +165,6 @@ background-color: #043db3;
 
 .liContainer {
     position: absolute;
-    display: flex;
     flex-direction: column;
     left: 50%;
     top: 50%;
@@ -174,23 +174,45 @@ background-color: #043db3;
     min-height: 65%;
 }
 
-.list-group-item {
-    overflow-y: hidden;
-    padding: 15px;
-    position: relative;
+.card {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: rgb(215, 231, 247);
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin: 10px auto;
+    padding: 7px;
 }
 
 .userTitle {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 1px;
+    width: fit-content;
 }
 
+.userTitle:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.userBody {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    width: 70%;
+}
 
 .trashBtn {
     position: absolute;
-    top: 6px;
+    top: 18px;
     right: 29px;
     cursor: pointer;
     z-index: 2;
@@ -198,7 +220,7 @@ background-color: #043db3;
 
 .editBtn  {
     position: absolute;
-    top: 6px;
+    top: 18px;
     right: 77px;
     cursor: pointer;
 }

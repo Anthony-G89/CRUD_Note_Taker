@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.editWrapper {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.editModal {
+    position: absolute;
+    width: 50%;
+    height: 75%;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.editModalHeader {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Bebas Neue', cursive;
+    height: 15%;
+
+}
+
+.EditcloseBtn {
+    position: relative;
+    bottom: 22px;
+    font-size: 45px;
+    color: red;
+    cursor: pointer;
+}
+
+.EditNote {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 53vh;
+    background-color: rgb(215, 231, 247);
+    border-radius: 4px;
+}
+
+.titleLabel , .textLabel {
+    text-align: center;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#updateBtn {
+    margin: 5px;
+    padding: 3px 15px;
+    background-color: #4b81f1;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+#editCancelBtn {
+    margin: 5px;
+    padding: 3px 15px;
+    background-color: red;
+    font-weight: 500;
+    letter-spacing: 1px;
+}

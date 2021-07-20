@@ -5,7 +5,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Notes({ btnToDeleteBtn }) {
+function Notes({ btnToDeleteBtn , editOpenner }) {
 
     const [noteTitle, setNoteTitle] = useState("");
     const [noteBody, setNoteBody] = useState("");
@@ -49,8 +49,8 @@ function Notes({ btnToDeleteBtn }) {
     const deleteNote = (id) => {
         console.log(id)
         axios.delete(`/api/insertNotes/:${id}`)
-        .then(res =>
-            console.log(res)
+            .then(response =>
+                alert(response.data)
             )
     }
 
@@ -84,7 +84,7 @@ function Notes({ btnToDeleteBtn }) {
                             data-length="120">
                         </textarea>
                     </form>
-                    <button id="submitNoteBtn" onClick={submitNote} >Submit</button>
+                    <button id="submitNoteBtn" type="submit" onClick={submitNote} >Submit</button>
                 </div>
             </div>
 
@@ -92,17 +92,15 @@ function Notes({ btnToDeleteBtn }) {
                 <div className="col-lg-12">
                     <h1 className="myNotesTitle">My Notes</h1>
                     <ul className=" list-group-flush liContainer">
-
-
-
-
                         {notesList ?
                             notesList.map(notes => (
-                                <li key={notes.id} className="list-group-item" >
-                                    <div className="userTitle">{notes.Title}</div>
-                                    <img className="editBtn" title="Edit" src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
-                                    <img className="trashBtn" onClick={()=> deleteNote(notes.id)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
-                                </li>
+                                // console.log(notes)
+                                <div key={notes.id} className="card" >
+                                    <div onClick={editOpenner} className="userTitle">{notes.Title}</div>
+                                    <div className="userBody">{notes.Body}</div>
+                                <img className="editBtn" title="Edit" onClick={editOpenner} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
+                                    <img className="trashBtn" onClick={() => deleteNote(notes.id)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
+                                </div>
                             ))
                             : <h3>No new notes!!</h3>}
 

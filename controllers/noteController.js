@@ -3,6 +3,7 @@ const router = express.Router();
 // const path = require("path");
 const Note = require("../model/note.js");
 
+
 // Get ALL Notes
 router.get("/getNotes", (req, res) => {
     Note.all(function (data) {
@@ -23,22 +24,33 @@ router.post("/api/insertNotes", function (req, res) {
     ], [
         req.body.Title, req.body.Body
     ], function (result) {
-        res.json({ id: result.insertId });
+        res.json({ message: "Your Note has been posted" });
     })
 });
 
 
 // Delete Note
 router.delete("/api/insertNotes/:id", function (req, res) {
+    // console.log(req.params);
+    // const condition = req.params.id;
+
+    // Note.delete(condition, function (results) {
+    //     if (results.affectedRows === 0) {
+    //         return res.status(404).end();
+    //     } else {
+    //         res.status(200).end();
+    //     }
+    // });
+
+    res.send("RESPONDING FROM THE BACK. Your note should be deleted")
     // console.log(req.params.id);
-    // res.send("RESPONDING FROM THE BACK")
     // var condition =  req.params.id;
 
-    Note.delete( req.params.id, function (result) {
-       console.log(result);
+    // Note.delete( req.params.id, function (result) {
+    //    console.log(result);
 
-       res.send("NOTE DELETED")
-    })
+    //    res.json({message: "Your Note has been deleted"});
+    // })
 
 });
 
