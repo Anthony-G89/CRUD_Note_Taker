@@ -24,25 +24,25 @@ router.post("/api/insertNotes", function (req, res) {
     ], [
         req.body.Title, req.body.Body
     ], function (result) {
-        res.json({ message: "Your Note has been posted" });
+        console.log(result);
+        res.json({ message: "Your Note has been posted", id: result.insertId });
     })
 });
 
 
 // Delete Note
 router.delete("/api/insertNotes/:id", function (req, res) {
-    // console.log(req.params);
-    // const condition = req.params.id;
+    console.log(req.params);
+    const condition = { id: req.params.id };
+    Note.delete(condition, function (results) {
+        if (results.affectedRows === 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    });
 
-    // Note.delete(condition, function (results) {
-    //     if (results.affectedRows === 0) {
-    //         return res.status(404).end();
-    //     } else {
-    //         res.status(200).end();
-    //     }
-    // });
-
-    res.send("RESPONDING FROM THE BACK. Your note should be deleted")
+    // res.send("RESPONDING FROM THE BACK. Your note should be deleted")
     // console.log(req.params.id);
     // var condition =  req.params.id;
 
@@ -51,6 +51,15 @@ router.delete("/api/insertNotes/:id", function (req, res) {
 
     //    res.json({message: "Your Note has been deleted"});
     // })
+
+});
+
+
+
+// Update Note
+router.put("/api/insertNotes/:id", function (req, res) {
+
+    res.send("RESPONDING FROM THE BACK END UPDATE ROUTE")
 
 });
 

@@ -1,4 +1,5 @@
 import React from "react";
+// import Note from "../../../model/note";
 import "./style.css";
 
 function Edit({ openEditModal, closeEditModal }) {
@@ -20,6 +21,7 @@ function Edit({ openEditModal, closeEditModal }) {
                                         type="text"
                                         data-length="20"
                                         name="noteTitle"
+                                        
                                     />
                                     <br />
                                     <br />
@@ -31,7 +33,10 @@ function Edit({ openEditModal, closeEditModal }) {
                                         name="noteBody"
                                         rows="10"
                                         cols="50"
-                                        data-length="120">
+                                        data-length="120"
+                                        >
+                
+                                    
                                     </textarea>
                                 </form>
                             </div>

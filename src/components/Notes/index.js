@@ -5,7 +5,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Notes({ btnToDeleteBtn , editOpenner }) {
+function Notes({ btnToDeleteBtn, editOpenner }) {
 
     const [noteTitle, setNoteTitle] = useState("");
     const [noteBody, setNoteBody] = useState("");
@@ -15,6 +15,9 @@ function Notes({ btnToDeleteBtn , editOpenner }) {
 
 
     function loadNotes() {
+
+
+        // RETRIEVE NOTES
         axios.get("/getNotes").then(res =>
             // console.log(res.data.notes))
             setNotesList(res.data.notes))
@@ -24,35 +27,43 @@ function Notes({ btnToDeleteBtn , editOpenner }) {
         loadNotes()
     }, []);
 
-
+    // SUBMIT NOTE
     const submitNote = (e) => {
         e.preventDefault();
-
         if (!noteTitle || !noteBody) {
             alert("Please enter a note");
             return;
         };
-
         axios.post('/api/insertNotes', {
             Title: noteTitle,
             Body: noteBody,
+        }).then((response) => {
+            const noteId = response.data.id;
+            setNotesList([
+                ...notesList,
+                { Title: noteTitle, Body: noteBody, id: noteId }
+            ]);
         });
-
-        setNotesList([
-            ...notesList,
-            { Title: noteTitle, Body: noteBody }
-        ]);
-
     };
 
-    // Function to delete notes
+    // DELETE NOTE
     const deleteNote = (id) => {
         console.log(id)
-        axios.delete(`/api/insertNotes/:${id}`)
+        axios.delete(`/api/insertNotes/${id}`)
+            .then(response => {
+                const newNoteList = notesList.filter(note => note.id !== id);
+                setNotesList(newNoteList);
+            })
+    };
+
+
+    // UPDATE NOTE
+    const updateNote = (id) => {
+        axios.put(`/api/insertNotes/${id}`)
             .then(response =>
                 alert(response.data)
             )
-    }
+    };
 
     return (
         <div className="noteContainer">
@@ -98,7 +109,7 @@ function Notes({ btnToDeleteBtn , editOpenner }) {
                                 <div key={notes.id} className="card" >
                                     <div onClick={editOpenner} className="userTitle">{notes.Title}</div>
                                     <div className="userBody">{notes.Body}</div>
-                                <img className="editBtn" title="Edit" onClick={editOpenner} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
+                                    <img className="editBtn" title="Edit" onClick={editOpenner} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
                                     <img className="trashBtn" onClick={() => deleteNote(notes.id)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
                                 </div>
                             ))
