@@ -14,7 +14,11 @@ function App() {
   const [showModal, setShowModal] = useState(false);
 
   // Show Edit Modal
-  const [showEditModal , setShowEditModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+
+
+  // Array to hold title and note body
+  const [showEdit, setShowEdit] = useState([]);
 
 
 
@@ -23,9 +27,9 @@ function App() {
     setShowModal(true);
   };
 
-const editModalOpenner = () => {
-  setShowEditModal(true);
-};
+  const editModalOpener = () => {
+    setShowEditModal(true);
+  };
 
   // Close Delete Modal
   const closeModal = () => {
@@ -34,6 +38,12 @@ const editModalOpenner = () => {
 
   const closeEditModal = () => {
     setShowEditModal(false)
+  };
+
+  const addNotesHandler = (noteList) => {
+    console.log(noteList)
+    // const receivingNote = noteList;
+    // setShowEdit([...noteList, noteList])
   };
 
 
@@ -50,13 +60,15 @@ const editModalOpenner = () => {
           < Route path="/notes"
             render={(props) => (
               <Notes {...props} btnToDeleteBtn={btnToDeleteBtn}
-              editOpenner={editModalOpenner} />
+                editOpener={editModalOpener}
+                addNotesHandler={addNotesHandler} />
             )}
           />
         </Switch>
         <EditModal
           closeEditModal={closeEditModal}
           openEditModal={showEditModal}
+        addNotesHandler={addNotesHandler}
         />
         < DeleteModal
           openModal={showModal}

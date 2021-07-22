@@ -5,7 +5,8 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Notes({ btnToDeleteBtn, editOpenner }) {
+function Notes({ btnToDeleteBtn, editOpener , addNotesHandler }) {
+    // console.log(addNotesHandler);
 
     const [noteTitle, setNoteTitle] = useState("");
     const [noteBody, setNoteBody] = useState("");
@@ -14,12 +15,9 @@ function Notes({ btnToDeleteBtn, editOpenner }) {
 
 
 
+    // RETRIEVE NOTES
     function loadNotes() {
-
-
-        // RETRIEVE NOTES
         axios.get("/getNotes").then(res =>
-            // console.log(res.data.notes))
             setNotesList(res.data.notes))
     };
 
@@ -43,6 +41,9 @@ function Notes({ btnToDeleteBtn, editOpenner }) {
                 ...notesList,
                 { Title: noteTitle, Body: noteBody, id: noteId }
             ]);
+
+            addNotesHandler(notesList)
+            
         });
     };
 
@@ -58,12 +59,15 @@ function Notes({ btnToDeleteBtn, editOpenner }) {
 
 
     // UPDATE NOTE
-    const updateNote = (id) => {
-        axios.put(`/api/insertNotes/${id}`)
-            .then(response =>
-                alert(response.data)
-            )
-    };
+    // const updateNote = (id) => {
+    //     axios.put(`/api/insertNotes/${id}`)
+    //         .then(response =>
+    //             alert(response.data)
+    //         )
+    // };
+
+    
+    
 
     return (
         <div className="noteContainer">
@@ -107,20 +111,13 @@ function Notes({ btnToDeleteBtn, editOpenner }) {
                             notesList.map(notes => (
                                 // console.log(notes)
                                 <div key={notes.id} className="card" >
-                                    <div onClick={editOpenner} className="userTitle">{notes.Title}</div>
+                                    <div onClick={editOpener} className="userTitle">{notes.Title}</div>
                                     <div className="userBody">{notes.Body}</div>
-                                    <img className="editBtn" title="Edit" onClick={editOpenner} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
+                                    <img className="editBtn" title="Edit" onClick={editOpener} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
                                     <img className="trashBtn" onClick={() => deleteNote(notes.id)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
                                 </div>
                             ))
                             : <h3>No new notes!!</h3>}
-
-                        {/* <li className="list-group-item">Sports
-                            <img className="editBtn" title="Edit" src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
-                            <img className="trashBtn" onClick={btnToDeleteBtn} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
-                        </li>
-                        <li className="list-group-item">History</li>
-                        <li className="list-group-item">Grocery</li> */}
                     </ul>
                 </div>
             </div>

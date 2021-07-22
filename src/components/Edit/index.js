@@ -2,7 +2,7 @@ import React from "react";
 // import Note from "../../../model/note";
 import "./style.css";
 
-function Edit({ openEditModal, closeEditModal }) {
+function Edit({ openEditModal, closeEditModal , addNotesHandler }) {
     return (
         <div>
 

@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-// const path = require("path");
 const Note = require("../model/note.js");
 
 
@@ -41,27 +40,16 @@ router.delete("/api/insertNotes/:id", function (req, res) {
             res.status(200).end();
         }
     });
-
-    // res.send("RESPONDING FROM THE BACK. Your note should be deleted")
-    // console.log(req.params.id);
-    // var condition =  req.params.id;
-
-    // Note.delete( req.params.id, function (result) {
-    //    console.log(result);
-
-    //    res.json({message: "Your Note has been deleted"});
-    // })
-
 });
 
 
 
 // Update Note
-router.put("/api/insertNotes/:id", function (req, res) {
+// router.put("/api/insertNotes/:id", function (req, res) {
 
-    res.send("RESPONDING FROM THE BACK END UPDATE ROUTE")
+//     res.send("RESPONDING FROM THE BACK END UPDATE ROUTE")
 
-});
+// });
 
 
 module.exports = router;
