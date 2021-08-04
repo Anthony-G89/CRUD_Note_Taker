@@ -5,7 +5,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Notes({ btnToDeleteBtn, editOpener , editNotesHandler }) {
+function Notes({ btnToDeleteBtn, editOpener, editNotesHandler }) {
     // console.log(addNotesHandler);
 
     const [noteTitle, setNoteTitle] = useState("");
@@ -42,8 +42,8 @@ function Notes({ btnToDeleteBtn, editOpener , editNotesHandler }) {
                 { Title: noteTitle, Body: noteBody, id: noteId }
             ]);
 
-            
-            
+
+
         });
     };
 
@@ -54,20 +54,21 @@ function Notes({ btnToDeleteBtn, editOpener , editNotesHandler }) {
             .then(response => {
                 const newNoteList = notesList.filter(note => note.id !== id);
                 setNotesList(newNoteList);
-            })
+            });
     };
 
 
     // UPDATE NOTE
     // const updateNote = (id) => {
     //     axios.put(`/api/insertNotes/${id}`)
-    //         .then(response =>
-    //             alert(response.data)
-    //         )
+    //         .then(response => {
+    //             const updatedNote = notesList.filter(newNote => newNote.id === id )
+    //             setNotesList(updatedNote)
+    //         });
     // };
 
-    
-    
+
+
 
     return (
         <div className="noteContainer">

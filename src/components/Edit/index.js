@@ -1,9 +1,13 @@
-import React from "react";
+import React , {useState}from "react";
 // import Note from "../../../model/note";
 import "./style.css";
 
 function Edit({ openEditModal, closeEditModal , editNotesHandler , editHandler }) {
     console.log(editHandler);
+
+    // const [updatedTitle, setUpdatedTitle] = useState("");
+    // const [updatedBody, setUpdatedBody] = useState("");
+
     return (
         <div>
 
@@ -22,7 +26,7 @@ function Edit({ openEditModal, closeEditModal , editNotesHandler , editHandler }
                                         type="text"
                                         data-length="20"
                                         name="noteTitle"
-                                        
+                                                      
                                     />
                                     <br />
                                     <br />
@@ -35,6 +39,7 @@ function Edit({ openEditModal, closeEditModal , editNotesHandler , editHandler }
                                         rows="10"
                                         cols="50"
                                         data-length="120"
+                                       
                                         >
                 
                                     

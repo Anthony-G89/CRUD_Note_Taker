@@ -29,7 +29,7 @@ function App() {
 
   const editModalOpener = (noteList) => {
     console.log(noteList)
-    setShowEdit([...noteList, noteList])
+    setShowEdit(noteList)
     setShowEditModal(true);
   };
 
@@ -41,17 +41,6 @@ function App() {
   const closeEditModal = () => {
     setShowEditModal(false)
   };
-
-  // const addNotesHandler = (noteList) => {
-  //   console.log(noteList)
-  //   // const receivingNote = noteList;
-  //   // setShowEdit([...noteList, noteList])
-  // };
-
-
-
-
-
 
   return (
     <div >
