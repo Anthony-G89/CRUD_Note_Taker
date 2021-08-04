@@ -27,7 +27,9 @@ function App() {
     setShowModal(true);
   };
 
-  const editModalOpener = () => {
+  const editModalOpener = (noteList) => {
+    console.log(noteList)
+    setShowEdit([...noteList, noteList])
     setShowEditModal(true);
   };
 
@@ -40,11 +42,11 @@ function App() {
     setShowEditModal(false)
   };
 
-  const addNotesHandler = (noteList) => {
-    console.log(noteList)
-    // const receivingNote = noteList;
-    // setShowEdit([...noteList, noteList])
-  };
+  // const addNotesHandler = (noteList) => {
+  //   console.log(noteList)
+  //   // const receivingNote = noteList;
+  //   // setShowEdit([...noteList, noteList])
+  // };
 
 
 
@@ -61,14 +63,16 @@ function App() {
             render={(props) => (
               <Notes {...props} btnToDeleteBtn={btnToDeleteBtn}
                 editOpener={editModalOpener}
-                addNotesHandler={addNotesHandler} />
+                editNotesHandler={editModalOpener} />
             )}
           />
         </Switch>
+
         <EditModal
           closeEditModal={closeEditModal}
           openEditModal={showEditModal}
-        addNotesHandler={addNotesHandler}
+        editNotesHandler={editModalOpener}
+        editHandler={editModalOpener}
         />
         < DeleteModal
           openModal={showModal}
