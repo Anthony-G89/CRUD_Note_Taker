@@ -18,7 +18,7 @@ function App() {
 
 
   // Array to hold title and note body
-  const [showEdit, setShowEdit] = useState([]);
+  const [showEdit, setShowEdit] = useState();
 
 
 
@@ -28,7 +28,7 @@ function App() {
   };
 
   const editModalOpener = (noteList) => {
-    console.log(noteList)
+    // console.log(noteList)
     setShowEdit(noteList)
     setShowEditModal(true);
   };
@@ -60,8 +60,7 @@ function App() {
         <EditModal
           closeEditModal={closeEditModal}
           openEditModal={showEditModal}
-        editNotesHandler={editModalOpener}
-        editHandler={editModalOpener}
+          editNotesHandler={showEdit}
         />
         < DeleteModal
           openModal={showModal}

@@ -114,7 +114,7 @@ function Notes({ btnToDeleteBtn, editOpener, editNotesHandler }) {
                                 <div key={notes.id} className="card" >
                                     <div onClick={editOpener} className="userTitle">{notes.Title}</div>
                                     <div className="userBody">{notes.Body}</div>
-                                    <img className="editBtn" title="Edit" onClick={() => editNotesHandler(notesList)} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
+                                    <img className="editBtn" title="Edit" onClick={() => editNotesHandler(notes)} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
                                     <img className="trashBtn" onClick={() => deleteNote(notes.id)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
                                 </div>
                             ))

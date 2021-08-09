@@ -1,12 +1,11 @@
-import React , {useState}from "react";
-// import Note from "../../../model/note";
+import React , {useState} from "react";
 import "./style.css";
 
-function Edit({ openEditModal, closeEditModal , editNotesHandler , editHandler }) {
-    console.log(editHandler);
+function Edit({ openEditModal, closeEditModal, editNotesHandler }) {
+    console.log(editNotesHandler);
 
-    // const [updatedTitle, setUpdatedTitle] = useState("");
-    // const [updatedBody, setUpdatedBody] = useState("");
+    const [newTitle , setNewTitle] = useState("");
+    const [newBody , setNewBody] = useState("");
 
     return (
         <div>
@@ -26,8 +25,11 @@ function Edit({ openEditModal, closeEditModal , editNotesHandler , editHandler }
                                         type="text"
                                         data-length="20"
                                         name="noteTitle"
-                                                      
+                                        value={editNotesHandler.Title}
+                                        onChange={ event => setNewTitle(event.target.value)}
+
                                     />
+
                                     <br />
                                     <br />
 
@@ -39,16 +41,17 @@ function Edit({ openEditModal, closeEditModal , editNotesHandler , editHandler }
                                         rows="10"
                                         cols="50"
                                         data-length="120"
-                                       
-                                        >
-                
-                                    
+                                        value={editNotesHandler.Body}
+                                         onChange={ event => setNewBody(event.target.value)}
+                                    >
                                     </textarea>
                                 </form>
+
                             </div>
                             <div className="buttonContainer">
                                 <button id="updateBtn">Update</button>
                                 <button onClick={closeEditModal} id="editCancelBtn">Cancel</button>
+
                             </div>
                         </div>
                     </div>
