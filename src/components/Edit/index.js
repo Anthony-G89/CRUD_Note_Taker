@@ -1,16 +1,31 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 import "./style.css";
+import axios from "axios";
 
-function Edit({ openEditModal, closeEditModal, editNotesHandler }) {
-    console.log(editNotesHandler);
+function Edit({ openEditModal, closeEditModal, transferingTitleAndBody }) {
+    // console.log(editNotesHandler);
+    const { Title = "", Body = "" } = transferingTitleAndBody;
+    const [newTitle, setNewTitle] = useState(Title);
+    const [newBody, setNewBody] = useState(Body);
+    const [holdingNotes, setHoldingNotes] = useState({});
 
-    const [newTitle , setNewTitle] = useState("");
-    const [newBody , setNewBody] = useState("");
+
+
+    // UPDATE NOTE
+    const updateNote = (id) => {
+        console.log(id)
+        axios.put(`/api/insertNotes/${id}`)
+            .then(response => {
+                const updatedNote = holdingNotes.filter(newNote => newNote.id === id)
+                setHoldingNotes(updatedNote)
+            });
+    };
+
 
     return (
         <div>
 
-            {openEditModal ? <div className="editWrapper">
+            <div className="editWrapper">
                 <div className="editModal">
                     <div className="editModalHeader">
                         <h1 className="editNoteTitle">Edit Note</h1>
@@ -25,9 +40,8 @@ function Edit({ openEditModal, closeEditModal, editNotesHandler }) {
                                         type="text"
                                         data-length="20"
                                         name="noteTitle"
-                                        value={editNotesHandler.Title}
-                                        onChange={ event => setNewTitle(event.target.value)}
-
+                                        value={newTitle}
+                                        onChange={event => setNewTitle(event.target.value)}
                                     />
 
                                     <br />
@@ -41,23 +55,21 @@ function Edit({ openEditModal, closeEditModal, editNotesHandler }) {
                                         rows="10"
                                         cols="50"
                                         data-length="120"
-                                        value={editNotesHandler.Body}
-                                         onChange={ event => setNewBody(event.target.value)}
+                                        value={newBody}
+                                        onChange={event => setNewBody(event.target.value)}
                                     >
                                     </textarea>
                                 </form>
-
                             </div>
                             <div className="buttonContainer">
-                                <button id="updateBtn">Update</button>
+                                <button id="updateBtn" onClick={() => updateNote(transferingTitleAndBody.id)}>Update</button>
                                 <button onClick={closeEditModal} id="editCancelBtn">Cancel</button>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-                : null}
+
 
 
         </div>

@@ -18,7 +18,7 @@ function App() {
 
 
   // Array to hold title and note body
-  const [showEdit, setShowEdit] = useState();
+  const [showEdit, setShowEdit] = useState({});
 
 
 
@@ -57,11 +57,12 @@ function App() {
           />
         </Switch>
 
-        <EditModal
-          closeEditModal={closeEditModal}
-          openEditModal={showEditModal}
-          editNotesHandler={showEdit}
-        />
+        {
+          showEditModal && <EditModal closeEditModal={closeEditModal} transferingTitleAndBody={showEdit} />
+            // openEditModal={showEditModal} 
+          
+        }
+
         < DeleteModal
           openModal={showModal}
           closeModal={closeModal}

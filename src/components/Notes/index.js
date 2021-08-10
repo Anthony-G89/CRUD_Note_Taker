@@ -5,6 +5,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+
 function Notes({ btnToDeleteBtn, editOpener, editNotesHandler }) {
     // console.log(addNotesHandler);
 
@@ -59,7 +60,9 @@ function Notes({ btnToDeleteBtn, editOpener, editNotesHandler }) {
 
 
     // UPDATE NOTE
+
     // const updateNote = (id) => {
+    //     console.log(id)
     //     axios.put(`/api/insertNotes/${id}`)
     //         .then(response => {
     //             const updatedNote = notesList.filter(newNote => newNote.id === id )
