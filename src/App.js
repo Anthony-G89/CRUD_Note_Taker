@@ -27,9 +27,10 @@ function App() {
     setShowModal(true);
   };
 
-  const editModalOpener = (noteList) => {
-    // console.log(noteList)
-    setShowEdit(noteList)
+  // Receiving array from Note/index.js and also openning edit modal
+  const editModalOpener = (receivingTitleAndBody) => {
+    // console.log(receivingTitleAndBody)
+    setShowEdit(receivingTitleAndBody)
     setShowEditModal(true);
   };
 
@@ -52,15 +53,16 @@ function App() {
             render={(props) => (
               <Notes {...props} btnToDeleteBtn={btnToDeleteBtn}
                 editOpener={editModalOpener}
-                editNotesHandler={editModalOpener} />
+                passingTitleAndBody={editModalOpener}
+              />
             )}
           />
         </Switch>
 
         {
           showEditModal && <EditModal closeEditModal={closeEditModal} transferingTitleAndBody={showEdit} />
-            // openEditModal={showEditModal} 
-          
+          // openEditModal={showEditModal} 
+
         }
 
         < DeleteModal
