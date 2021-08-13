@@ -2,25 +2,20 @@ import React, { useState } from "react";
 import "./style.css";
 import axios from "axios";
 
-function Edit({ openEditModal, closeEditModal, transferingTitleAndBody }) {
-    const { Title = "", Body = "" } = transferingTitleAndBody;
+function Edit({ openEditModal, closeEditModal, note }) {
+    const { Title = "", Body = "" } = note;
     const [newTitle, setNewTitle] = useState(Title);
     const [newBody, setNewBody] = useState(Body);
 
+
     // const [holdingNotes, setHoldingNotes] = useState({});
 
-
-
-    /* This is for the new Title or Body if updated in the Edit Component*/
-    const [updatedTitle, setUpdatedTitle] = useState("");
-    const [updatedBody, setUpdatedBody] = useState("");
-
-
-
     // UPDATE NOTE
-    const updateNote = (id) => {
-        axios.put(`/api/insertNotes/${id}`, { Title: setUpdatedTitle, Body: setUpdatedBody })
+    const updateNote = () => {
+        const {id} = note;
+        axios.put(`/api/insertNotes/${id}`, { Title: newTitle, Body: newBody })
             .then(response => {
+
                 alert("Note Updated!")
                 // const updatedNote = holdingNotes.filter(newNote => newNote.id === id)
                 // setHoldingNotes(updatedNote)
@@ -68,7 +63,7 @@ function Edit({ openEditModal, closeEditModal, transferingTitleAndBody }) {
                                 </form>
                             </div>
                             <div className="buttonContainer">
-                                <button id="updateBtn" onClick={() => updateNote(transferingTitleAndBody)}>Update</button>
+                                <button id="updateBtn" onClick={updateNote}>Update</button>
                                 <button onClick={closeEditModal} id="editCancelBtn">Cancel</button>
                             </div>
                         </div>

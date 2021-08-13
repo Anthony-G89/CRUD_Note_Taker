@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 
-function Notes({ btnToDeleteBtn, editOpener, passingTitleAndBody }) {
+function Notes({ btnToDeleteBtn, editOpener, editNoteHandler }) {
     // console.log(addNotesHandler);
 
     const [noteTitle, setNoteTitle] = useState("");
@@ -112,16 +112,17 @@ function Notes({ btnToDeleteBtn, editOpener, passingTitleAndBody }) {
                     <h1 className="myNotesTitle">My Notes</h1>
                     <ul className=" list-group-flush liContainer">
                         {notesList ?
-                            notesList.map(notes => (
-                                // console.log(notes)
-                                <div key={notes.id} className="card" >
-                                    <div onClick={editOpener} className="userTitle">{notes.Title}</div>
-                                    <div className="userBody">{notes.Body}</div>
-                                    <img className="editBtn" title="Edit" onClick={() => passingTitleAndBody(notes)} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
-                                    <img className="trashBtn" onClick={() => deleteNote(notes.id)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
+                            notesList.map(note => (
+                                // console.log(note)
+                                <div key={note.id} className="card" >
+                                    <div onClick={editOpener} className="userTitle">{note.Title}</div>
+                                    <div className="userBody">{note.Body}</div>
+                                    <img className="editBtn" title="Edit" onClick={() => editNoteHandler(note)} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
+                                    <img className="trashBtn" onClick={() => deleteNote(note.id)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
                                 </div>
                             ))
-                            : <h3>No new notes!!</h3>}
+                            : <h3>No new notes!!</h3>
+                        }
                     </ul>
                 </div>
             </div>

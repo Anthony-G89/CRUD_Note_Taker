@@ -18,7 +18,7 @@ function App() {
 
 
   // Array to hold title and note body
-  const [showEdit, setShowEdit] = useState({});
+  const [editingNote, setEditingNote] = useState({});
 
 
 
@@ -28,9 +28,9 @@ function App() {
   };
 
   // Receiving array from Note/index.js and also openning edit modal
-  const editModalOpener = (receivingTitleAndBody) => {
-    // console.log(receivingTitleAndBody)
-    setShowEdit(receivingTitleAndBody)
+  const editModalOpener = (note) => {
+    // console.log(note)
+    setEditingNote(note)
     setShowEditModal(true);
   };
 
@@ -53,14 +53,14 @@ function App() {
             render={(props) => (
               <Notes {...props} btnToDeleteBtn={btnToDeleteBtn}
                 editOpener={editModalOpener}
-                passingTitleAndBody={editModalOpener}
+                editNoteHandler={editModalOpener}
               />
             )}
           />
         </Switch>
 
         {
-          showEditModal && <EditModal closeEditModal={closeEditModal} transferingTitleAndBody={showEdit} />
+          showEditModal && <EditModal closeEditModal={closeEditModal} note={editingNote} />
           // openEditModal={showEditModal} 
 
         }
