@@ -28,7 +28,7 @@
 }
 
 .backBtn:hover {
-    background-color: #8bc34a;
+    background-color: #969993;
     color: white;
 }
 
@@ -51,7 +51,10 @@
     position: absolute;
     height: 3px;
     min-width: 21%;
-    background-color: #8bc34a;
+    background: #2980B9;
+    background: -webkit-linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9);  
+    background: linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9); 
+
     top: 57px;
 }
 
@@ -88,14 +91,12 @@
 }
 
 input[type=text]:focus {
-    background-color:  rgb(215, 231, 247);
     color: black;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
 }
 
 textarea[type=text]:focus {
-    background-color:  rgb(215, 231, 247);
     font-family: 'Poppins', sans-serif;
     color: black;
     font-weight: bold;
@@ -159,7 +160,9 @@ background-color: #043db3;
     position: absolute;
     height: 3px;
     min-width: 21%;
-    background-color: #8bc34a;
+    background: #2980B9;
+    background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  
+    background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); 
     bottom: 1px;
 }
 
@@ -180,7 +183,9 @@ background-color: #043db3;
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: rgb(215, 231, 247);
+    background: #1c92d2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;

@@ -75,3 +75,11 @@
     font-weight: 500;
     letter-spacing: 1px;
 }
+
+
+
+@media screen and (min-width: 350px) and (max-width:499px) {
+    .editModal {
+        width: 99%;
+    }
+}

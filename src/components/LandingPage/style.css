@@ -9,7 +9,9 @@
 
 .container {
     position: relative;
-    background-color: #8bc34a;
+    background: #1c92d2; 
+    background: -webkit-linear-gradient(to left, #f2fcfe, #1c92d2);  
+    background: linear-gradient(to left, #f2fcfe, #1c92d2);
     padding: 10em;
     margin: 40vh auto;
     width: 50%;

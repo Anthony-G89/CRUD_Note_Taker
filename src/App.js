@@ -61,8 +61,6 @@ function App() {
 
         {
           showEditModal && <EditModal closeEditModal={closeEditModal} note={editingNote} />
-          // openEditModal={showEditModal} 
-
         }
 
         < DeleteModal

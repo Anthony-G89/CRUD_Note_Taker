@@ -2,23 +2,19 @@ import React, { useState } from "react";
 import "./style.css";
 import axios from "axios";
 
-function Edit({ openEditModal, closeEditModal, note }) {
+function Edit({ closeEditModal, note }) {
     const { Title = "", Body = "" } = note;
     const [newTitle, setNewTitle] = useState(Title);
     const [newBody, setNewBody] = useState(Body);
 
 
-    // const [holdingNotes, setHoldingNotes] = useState({});
-
     // UPDATE NOTE
-    const updateNote = () => {
+    const updateNote = (array) => {
         const {id} = note;
+        console.log(array)
         axios.put(`/api/insertNotes/${id}`, { Title: newTitle, Body: newBody })
             .then(response => {
-
                 alert("Note Updated!")
-                // const updatedNote = holdingNotes.filter(newNote => newNote.id === id)
-                // setHoldingNotes(updatedNote)
             });
     };
 
