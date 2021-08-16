@@ -48,16 +48,19 @@ router.delete("/api/insertNotes/:id", function (req, res) {
 router.put("/api/insertNotes/:id", function (req, res) {
     const condition = { id: req.params.id };
     const { Title, Body } = req.body;
+    console.log({Title, Body});
 
     Note.update({ Title, Body }, condition, function (result) {
         if (result.changedRows === 0) {
             return res.status(404).end();
         } else {
-            res.status(200).end();
+            res.status(200).json({
+                id: parseInt(req.params.id),
+                Title,
+                Body
+            });
         }
     })
-
-    // res.send("repsonse from the back end")
 });
 
 

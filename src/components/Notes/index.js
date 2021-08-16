@@ -4,17 +4,64 @@ import React, { useState, useEffect } from 'react';
 import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import EditModal from '../Edit';
 
 
-function Notes({ btnToDeleteBtn, editOpener, editNoteHandler }) {
+function Notes() {
+
+    // Show Edit Modal
+    const [showEditModal, setShowEditModal] = useState(false);
+
+    // Array to hold title and note body
+    const [editingNote, setEditingNote] = useState({});
+
     const [noteTitle, setNoteTitle] = useState("");
     const [noteBody, setNoteBody] = useState("");
     const [notesList, setNotesList] = useState([]);
 
 
 
+    // Receiving array from Note/index.js and also openning edit modal
+    const editModalOpener = (note) => {
+        // console.log(note)
+        setEditingNote(note)
+        setShowEditModal(true);
+    };
 
-    // RETRIEVE NOTES
+    const closeEditModal = () => {
+        setShowEditModal(false)
+    };
+
+    const handleNoteUpdated = (updatedNote) => {
+        const newNotesList = notesList.map((note) => {
+            if (note.id === updatedNote.id) {
+                return updatedNote
+            }
+            return note
+        });
+
+
+        setNotesList(newNotesList)
+        closeEditModal()
+        window.location.reload();
+    };
+
+
+    // Close Delete Modal BUT NOT USING AT THE MOMENT
+    //   const closeModal = () => {
+    //     setShowModal(false)
+    //   };
+
+    // This function will open a Modal for when user wants to delete a note BUT NOT USING AT THE MOMENT
+    // const btnToDeleteBtn = () => {
+    //     setShowModal(true);
+    // };
+    // This modal is for the Delete button BUT NOT USING AT THE MOMENT
+    // const [showModal, setShowModal] = useState(false);
+
+
+
+    // RETRIEVE NOTES METHOD
     function loadNotes() {
         axios.get("/getNotes").then(res =>
             setNotesList(res.data.notes))
@@ -24,7 +71,7 @@ function Notes({ btnToDeleteBtn, editOpener, editNoteHandler }) {
         loadNotes()
     }, []);
 
-    // SUBMIT NOTE
+    // SUBMIT NOTE METHOD
     const submitNote = (e) => {
         e.preventDefault();
         if (!noteTitle || !noteBody) {
@@ -40,10 +87,11 @@ function Notes({ btnToDeleteBtn, editOpener, editNoteHandler }) {
                 ...notesList,
                 { Title: noteTitle, Body: noteBody, id: noteId }
             ]);
+            window.location.reload();
         });
     };
 
-    // DELETE NOTE
+    // DELETE NOTE METHOD
     const deleteNote = (id) => {
         console.log(id)
         axios.delete(`/api/insertNotes/${id}`)
@@ -83,6 +131,7 @@ function Notes({ btnToDeleteBtn, editOpener, editNoteHandler }) {
                             data-length="120">
                         </textarea>
                     </form>
+
                     <button id="submitNoteBtn" type="submit" onClick={submitNote} >Submit</button>
                 </div>
             </div>
@@ -93,11 +142,11 @@ function Notes({ btnToDeleteBtn, editOpener, editNoteHandler }) {
                     <ul className=" list-group-flush liContainer">
                         {notesList ?
                             notesList.map(note => (
-                                // console.log(note)
                                 <div key={note.id} className="card" >
-                                    <div onClick={editOpener} className="userTitle">{note.Title}</div>
+                                    <div className="userTitle">{note.Title}</div>
                                     <div className="userBody">{note.Body}</div>
-                                    <img className="editBtn" title="Edit" onClick={() => editNoteHandler(note) + console.log(note)} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
+                                    {/* Line 127 I changed editNoteHandler(note) to editModalOpener(note  */}
+                                    <img className="editBtn" title="Edit" onClick={() => editModalOpener(note) + console.log(note)} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
                                     <img className="trashBtn" onClick={() => deleteNote(note.id)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
                                 </div>
                             ))
@@ -106,9 +155,18 @@ function Notes({ btnToDeleteBtn, editOpener, editNoteHandler }) {
                     </ul>
                 </div>
             </div>
-
+            {
+                showEditModal &&
+                <EditModal
+                    closeEditModal={closeEditModal}
+                    note={editingNote}
+                    handleNoteUpdated={handleNoteUpdated}
+                />
+            }
 
         </div>
+
+
 
 
     )

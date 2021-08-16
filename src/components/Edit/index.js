@@ -2,19 +2,18 @@ import React, { useState } from "react";
 import "./style.css";
 import axios from "axios";
 
-function Edit({ closeEditModal, note }) {
+function Edit({ closeEditModal, note , handleNoteUpdated }) {
     const { Title = "", Body = "" } = note;
     const [newTitle, setNewTitle] = useState(Title);
     const [newBody, setNewBody] = useState(Body);
 
 
-    // UPDATE NOTE
-    const updateNote = (array) => {
-        const {id} = note;
-        console.log(array)
+    // UPDATE NOTE METHOD
+    const updateNote = () => {
+        const { id } = note;
         axios.put(`/api/insertNotes/${id}`, { Title: newTitle, Body: newBody })
             .then(response => {
-                alert("Note Updated!")
+                handleNoteUpdated(response.data)
             });
     };
 
@@ -57,6 +56,7 @@ function Edit({ closeEditModal, note }) {
                                     >
                                     </textarea>
                                 </form>
+
                             </div>
                             <div className="buttonContainer">
                                 <button id="updateBtn" onClick={updateNote}>Update</button>

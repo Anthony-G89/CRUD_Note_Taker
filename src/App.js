@@ -23,16 +23,16 @@ function App() {
 
 
   // This function will open a Modal for when user wants to delete a note
-  const btnToDeleteBtn = () => {
-    setShowModal(true);
-  };
+  // const btnToDeleteBtn = () => {
+  //   setShowModal(true);
+  // };
 
   // Receiving array from Note/index.js and also openning edit modal
-  const editModalOpener = (note) => {
-    // console.log(note)
-    setEditingNote(note)
-    setShowEditModal(true);
-  };
+  // const editModalOpener = (note) => {
+  //   // console.log(note)
+  //   setEditingNote(note)
+  //   setShowEditModal(true);
+  // };
 
   // Close Delete Modal
   const closeModal = () => {
@@ -51,16 +51,21 @@ function App() {
           < Route exact path="/" component={LandingPage} />
           < Route path="/notes"
             render={(props) => (
-              <Notes {...props} btnToDeleteBtn={btnToDeleteBtn}
-                editOpener={editModalOpener}
-                editNoteHandler={editModalOpener}
+              <Notes
+              // {...props} btnToDeleteBtn={btnToDeleteBtn}
+                // editOpener={editModalOpener}
+              //   editNoteHandler={editModalOpener}
               />
             )}
           />
         </Switch>
 
         {
-          showEditModal && <EditModal closeEditModal={closeEditModal} note={editingNote} />
+          showEditModal &&
+          <EditModal
+            closeEditModal={closeEditModal}
+            note={editingNote}
+          />
         }
 
         < DeleteModal
