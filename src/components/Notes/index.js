@@ -7,7 +7,11 @@ import axios from "axios";
 import EditModal from '../Edit';
 
 
+
 function Notes() {
+
+    // show Delete Modal
+    // const [showModal, setShowModal] = useState(false);
 
     // Show Edit Modal
     const [showEditModal, setShowEditModal] = useState(false);
@@ -32,21 +36,6 @@ function Notes() {
         setShowEditModal(false)
     };
 
-    const handleNoteUpdated = (updatedNote) => {
-        const newNotesList = notesList.map((note) => {
-            if (note.id === updatedNote.id) {
-                return updatedNote
-            }
-            return note
-        });
-
-
-        setNotesList(newNotesList)
-        closeEditModal()
-        window.location.reload();
-    };
-
-
     // Close Delete Modal BUT NOT USING AT THE MOMENT
     //   const closeModal = () => {
     //     setShowModal(false)
@@ -56,9 +45,6 @@ function Notes() {
     // const btnToDeleteBtn = () => {
     //     setShowModal(true);
     // };
-    // This modal is for the Delete button BUT NOT USING AT THE MOMENT
-    // const [showModal, setShowModal] = useState(false);
-
 
 
     // RETRIEVE NOTES METHOD
@@ -94,11 +80,27 @@ function Notes() {
     // DELETE NOTE METHOD
     const deleteNote = (id) => {
         console.log(id)
+
         axios.delete(`/api/insertNotes/${id}`)
             .then(response => {
                 const newNoteList = notesList.filter(note => note.id !== id);
                 setNotesList(newNoteList);
             });
+    };
+
+
+    //  Update Method
+    const handleNoteUpdated = (updatedNote) => {
+        // console.log(updatedNote);
+        const newNotesList = notesList.map((note) => {
+            if (note.id === updatedNote.id) {
+                return updatedNote
+            }
+            return note
+        });
+        setNotesList(newNotesList)
+        closeEditModal()
+        window.location.reload();
     };
 
     return (
@@ -110,7 +112,7 @@ function Notes() {
             <div className="row newNote">
                 <div className="col-6 ">
                     <form className="noteFormContainer">
-                        <label htmlFor="input_text" className="titleLabel">Title:</label>
+                        <label htmlFor="input_text" className="titleLabel">Title</label>
                         <input id="input_text"
                             type="text"
                             data-length="20"
@@ -145,8 +147,7 @@ function Notes() {
                                 <div key={note.id} className="card" >
                                     <div className="userTitle">{note.Title}</div>
                                     <div className="userBody">{note.Body}</div>
-                                    {/* Line 127 I changed editNoteHandler(note) to editModalOpener(note  */}
-                                    <img className="editBtn" title="Edit" onClick={() => editModalOpener(note) + console.log(note)} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
+                                    <img className="editBtn" title="Edit" onClick={() => editModalOpener(note)} src={process.env.PUBLIC_URL + "./Images/icons8-edit-30.png"} />
                                     <img className="trashBtn" onClick={() => deleteNote(note.id)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
                                 </div>
                             ))
@@ -163,6 +164,7 @@ function Notes() {
                     handleNoteUpdated={handleNoteUpdated}
                 />
             }
+
 
         </div>
 

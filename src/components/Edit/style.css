@@ -39,14 +39,18 @@
     cursor: pointer;
 }
 
+.editContent {
+    border-radius: 10px;
+}
+
 .EditNote {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 53vh;
-    background-color: rgb(230, 230, 230);
-    border-radius: 4px;
+    background-color: lightgray;
+    border-radius: 10px;
 }
 
 .titleLabel , .textLabel {
@@ -76,10 +80,46 @@
     letter-spacing: 1px;
 }
 
+@media screen and (min-width: 901px)  and (max-width:1536px) {
+    .editModal {
+        height: 96%;
+        width: 55%;
+    }
+    .EditNote {
+       height: 77vh; 
+    }
+}
 
+@media screen and (min-width: 601px) and (max-width:901px) {
+    .editModal {
+       width:70%;
+       height: 95%;  
+    }
+    .EditNote {
+        height: 77vh; 
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width:600px) {
+    
+    .editModal {
+       width:93%;  
+       height: 95%;  
+    }
+}
 
 @media screen and (min-width: 350px) and (max-width:499px) {
     .editModal {
         width: 99%;
+    }
+    .editContent {
+        position: relative;
+        bottom: 18px;
+    }
+    .EditNote {
+        height: 60vh;
+    }
+    .titleLabel , .textLabel {
+        font-size: 20px;
     }
 }

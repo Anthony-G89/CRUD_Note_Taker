@@ -31,7 +31,7 @@ function Edit({ closeEditModal, note , handleNoteUpdated }) {
                         <div className="row EditNote">
                             <div className="col-6 ">
                                 <form className="noteFormContainer">
-                                    <label htmlFor="input_text" className="titleLabel">Title:</label>
+                                    <label htmlFor="input_text" className="titleLabel">Title</label>
                                     <input id="input_text"
                                         type="text"
                                         data-length="20"
