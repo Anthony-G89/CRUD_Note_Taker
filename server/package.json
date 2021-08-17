@@ -8,6 +8,13 @@
     "devStart": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "production": {
+    "username": "j50kltmat6jgh5hn",
+    "password": "dt3856f1rpmm6rd6",
+    "database": "vsn5quyh40gjrn9o",
+    "host": "qao3ibsa7hhgecbv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
