@@ -48,7 +48,7 @@ router.delete("/api/insertNotes/:id", function (req, res) {
 router.put("/api/insertNotes/:id", function (req, res) {
     const condition = { id: req.params.id };
     const { Title, Body } = req.body;
-    console.log({Title, Body});
+    console.log({ Title, Body });
 
     Note.update({ Title, Body }, condition, function (result) {
         if (result.changedRows === 0) {
