@@ -26,7 +26,7 @@ function Notes() {
 
 
     // Receiving array from Note/index.js and also openning edit modal
-    
+
     const editModalOpener = (note) => {
         // console.log(note)
         setEditingNote(note)
@@ -152,7 +152,7 @@ function Notes() {
                                     <img className="trashBtn" onClick={() => deleteNote(note.id)} title="Trash" src={process.env.PUBLIC_URL + "./Images/icons8-remove-30.png"} />
                                 </div>
                             ))
-                            : <h3>No new notes!!</h3>
+                            : <h2 className="noNotesHeader">Add a note</h2>
                         }
                     </ul>
                 </div>
