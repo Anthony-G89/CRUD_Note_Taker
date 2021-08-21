@@ -26,6 +26,7 @@ function Notes() {
 
 
     // Receiving array from Note/index.js and also openning edit modal
+    
     const editModalOpener = (note) => {
         // console.log(note)
         setEditingNote(note)
@@ -142,7 +143,7 @@ function Notes() {
                 <div className="col-lg-12">
                     <h1 className="myNotesTitle">All Notes</h1>
                     <ul className=" list-group-flush liContainer">
-                        {notesList ?
+                        {notesList.length ?
                             notesList.map(note => (
                                 <div key={note.id} className="card" >
                                     <div className="userTitle">{note.Title}</div>
