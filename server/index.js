@@ -13,12 +13,12 @@ app.use(routes);
 
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.resolve(process.cwd(), `../build`)));
-
+    app.use(express.static('../build'));
+  
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(process.cwd(), '../build', 'index.html'));
+      res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
     });
-}
+  }
 
 
 app.listen(PORT, () => {
