@@ -9,7 +9,7 @@ const landingPage = () => {
     return (
         <div className="container">
             <div className="addNoteBtnContainer">
-                <Link to="/notes"> <a className="addNoteBtn">Add a note <img className="notePadIcon" alt="Image of a notepad" src={process.env.PUBLIC_URL + "./Images/NotePad-Icon.png"} /> </a></Link>
+                <Link to="/notes"> <a className="addNoteBtn">Click to add a note <img className="notePadIcon" alt="Image of a notepad" src={process.env.PUBLIC_URL + "./Images/NotePad-Icon.png"} /> </a></Link>
             </div>
         </div>
     )

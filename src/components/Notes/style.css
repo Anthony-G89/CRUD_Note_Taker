@@ -287,6 +287,13 @@ li:nth-child(odd) {
         left: 46%;
         width: 99%;
     }
+    .noteFormContainer {
+        position: relative;
+        top: 25px;
+    }
+    #submitNoteBtn {
+        top: 50px;
+    }
 }
 
 @media screen and (min-width:499px)  and (max-width:560px) {
